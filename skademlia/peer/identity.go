@@ -6,8 +6,8 @@ import (
 	"fmt"
 	"math/bits"
 
-	"github.com/perlin-network/noise/crypto/blake2b"
-	"github.com/perlin-network/noise/skademlia/protobuf"
+	"github.com/romainPellerin/noise/crypto/blake2b"
+	"github.com/romainPellerin/noise/skademlia/protobuf"
 )
 
 var (

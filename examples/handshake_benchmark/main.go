@@ -9,11 +9,11 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/perlin-network/noise/base"
-	"github.com/perlin-network/noise/crypto"
-	"github.com/perlin-network/noise/log"
-	"github.com/perlin-network/noise/protocol"
-	"github.com/perlin-network/noise/utils"
+	"github.com/romainPellerin/noise/base"
+	"github.com/romainPellerin/noise/crypto"
+	"github.com/romainPellerin/noise/log"
+	"github.com/romainPellerin/noise/protocol"
+	"github.com/romainPellerin/noise/utils"
 
 	"github.com/pkg/errors"
 )

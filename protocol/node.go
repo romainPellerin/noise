@@ -6,7 +6,7 @@ import (
 	"encoding/hex"
 	"fmt"
 	"github.com/monnand/dhkx"
-	"github.com/perlin-network/noise/log"
+	"github.com/romainPellerin/noise/log"
 	"github.com/pkg/errors"
 	"math/rand"
 	"sync"

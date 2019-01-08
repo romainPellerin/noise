@@ -7,9 +7,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/perlin-network/noise/log"
-	"github.com/perlin-network/noise/protocol"
-	"github.com/perlin-network/noise/utils"
+	"github.com/romainPellerin/noise/log"
+	"github.com/romainPellerin/noise/protocol"
+	"github.com/romainPellerin/noise/utils"
 
 	"github.com/stretchr/testify/assert"
 )

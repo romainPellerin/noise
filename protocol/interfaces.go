@@ -2,7 +2,7 @@ package protocol
 
 import (
 	"context"
-	"github.com/perlin-network/noise/crypto"
+	"github.com/romainPellerin/noise/crypto"
 )
 
 // ConnectionAdapter is an adapter that establishes real/virtual connections (message adapters), both passively and actively.

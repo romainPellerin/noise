@@ -1,4 +1,4 @@
-module github.com/perlin-network/noise
+module github.com/romainPellerin/noise
 
 require (
 	github.com/davecgh/go-spew v1.1.1 // indirect

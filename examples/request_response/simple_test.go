@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/perlin-network/noise"
-	"github.com/perlin-network/noise/utils"
+	"github.com/romainPellerin/noise"
+	"github.com/romainPellerin/noise/utils"
 
 	"github.com/pkg/errors"
 	"github.com/stretchr/testify/assert"

@@ -4,7 +4,7 @@ import (
 	"reflect"
 	"testing"
 
-	pb "github.com/perlin-network/noise/skademlia/protobuf"
+	pb "github.com/romainPellerin/noise/skademlia/protobuf"
 
 	"github.com/gogo/protobuf/proto"
 	"github.com/stretchr/testify/assert"

@@ -4,10 +4,10 @@ import (
 	"context"
 	"testing"
 
-	"github.com/perlin-network/noise/protocol"
-	"github.com/perlin-network/noise/skademlia/discovery"
-	"github.com/perlin-network/noise/skademlia/peer"
-	"github.com/perlin-network/noise/skademlia/protobuf"
+	"github.com/romainPellerin/noise/protocol"
+	"github.com/romainPellerin/noise/skademlia/discovery"
+	"github.com/romainPellerin/noise/skademlia/peer"
+	"github.com/romainPellerin/noise/skademlia/protobuf"
 
 	"github.com/pkg/errors"
 	"github.com/stretchr/testify/assert"

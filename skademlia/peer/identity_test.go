@@ -5,7 +5,7 @@ import (
 	"encoding/binary"
 	"testing"
 
-	"github.com/perlin-network/noise/crypto/blake2b"
+	"github.com/romainPellerin/noise/crypto/blake2b"
 
 	"github.com/stretchr/testify/assert"
 )

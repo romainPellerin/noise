@@ -7,7 +7,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/perlin-network/noise"
+	"github.com/romainPellerin/noise"
 )
 
 type starterService struct {

@@ -4,11 +4,11 @@ import (
 	"context"
 	"time"
 
-	"github.com/perlin-network/noise/log"
-	"github.com/perlin-network/noise/protocol"
-	"github.com/perlin-network/noise/skademlia/dht"
-	"github.com/perlin-network/noise/skademlia/peer"
-	"github.com/perlin-network/noise/skademlia/protobuf"
+	"github.com/romainPellerin/noise/log"
+	"github.com/romainPellerin/noise/protocol"
+	"github.com/romainPellerin/noise/skademlia/dht"
+	"github.com/romainPellerin/noise/skademlia/peer"
+	"github.com/romainPellerin/noise/skademlia/protobuf"
 
 	"github.com/gogo/protobuf/proto"
 	"github.com/pkg/errors"

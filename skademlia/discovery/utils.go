@@ -1,8 +1,8 @@
 package discovery
 
 import (
-	"github.com/perlin-network/noise/protocol"
-	"github.com/perlin-network/noise/skademlia/protobuf"
+	"github.com/romainPellerin/noise/protocol"
+	"github.com/romainPellerin/noise/skademlia/protobuf"
 
 	"github.com/gogo/protobuf/proto"
 	"github.com/pkg/errors"

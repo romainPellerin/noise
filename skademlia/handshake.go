@@ -3,7 +3,7 @@ package skademlia
 import (
 	"encoding/json"
 
-	"github.com/perlin-network/noise/protocol"
+	"github.com/romainPellerin/noise/protocol"
 
 	"github.com/pkg/errors"
 )

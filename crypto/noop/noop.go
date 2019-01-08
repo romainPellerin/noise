@@ -1,7 +1,7 @@
 package blake2b
 
 import (
-	"github.com/perlin-network/noise/crypto"
+	"github.com/romainPellerin/noise/crypto"
 )
 
 // Noop is a HashPolicy that returns the original input.

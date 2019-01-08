@@ -6,7 +6,7 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/perlin-network/noise/crypto"
+	"github.com/romainPellerin/noise/crypto"
 )
 
 func BenchmarkHash(b *testing.B) {

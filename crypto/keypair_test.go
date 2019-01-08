@@ -6,8 +6,8 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/perlin-network/noise/crypto"
-	"github.com/perlin-network/noise/crypto/mocks"
+	"github.com/romainPellerin/noise/crypto"
+	"github.com/romainPellerin/noise/crypto/mocks"
 
 	gomock "github.com/golang/mock/gomock"
 )

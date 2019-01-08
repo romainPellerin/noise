@@ -7,9 +7,9 @@ import (
 	"sort"
 	"sync"
 
-	"github.com/perlin-network/noise/crypto/blake2b"
-	"github.com/perlin-network/noise/log"
-	"github.com/perlin-network/noise/skademlia/peer"
+	"github.com/romainPellerin/noise/crypto/blake2b"
+	"github.com/romainPellerin/noise/log"
+	"github.com/romainPellerin/noise/skademlia/peer"
 
 	"github.com/pkg/errors"
 )

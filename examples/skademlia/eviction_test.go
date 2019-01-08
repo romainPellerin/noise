@@ -7,12 +7,12 @@ import (
 	"testing"
 	"time"
 
-	"github.com/perlin-network/noise"
-	"github.com/perlin-network/noise/log"
-	"github.com/perlin-network/noise/skademlia"
-	"github.com/perlin-network/noise/skademlia/dht"
-	"github.com/perlin-network/noise/skademlia/peer"
-	"github.com/perlin-network/noise/utils"
+	"github.com/romainPellerin/noise"
+	"github.com/romainPellerin/noise/log"
+	"github.com/romainPellerin/noise/skademlia"
+	"github.com/romainPellerin/noise/skademlia/dht"
+	"github.com/romainPellerin/noise/skademlia/peer"
+	"github.com/romainPellerin/noise/utils"
 
 	"github.com/stretchr/testify/assert"
 )

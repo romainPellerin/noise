@@ -7,7 +7,7 @@ import (
 	"encoding/binary"
 	"sync"
 
-	"github.com/perlin-network/noise/log"
+	"github.com/romainPellerin/noise/log"
 
 	"github.com/monnand/dhkx"
 	"github.com/pkg/errors"

@@ -2,7 +2,7 @@ package noise
 
 import (
 	"context"
-	"github.com/perlin-network/noise/protocol"
+	"github.com/romainPellerin/noise/protocol"
 )
 
 // Startup is called only once when the service is loaded

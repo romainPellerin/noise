@@ -5,11 +5,11 @@ import (
 	"crypto/rand"
 	"encoding/hex"
 
-	"github.com/perlin-network/noise/crypto"
-	"github.com/perlin-network/noise/crypto/blake2b"
-	"github.com/perlin-network/noise/crypto/ed25519"
-	"github.com/perlin-network/noise/protocol"
-	"github.com/perlin-network/noise/skademlia/peer"
+	"github.com/romainPellerin/noise/crypto"
+	"github.com/romainPellerin/noise/crypto/blake2b"
+	"github.com/romainPellerin/noise/crypto/ed25519"
+	"github.com/romainPellerin/noise/protocol"
+	"github.com/romainPellerin/noise/skademlia/peer"
 
 	"github.com/pkg/errors"
 )

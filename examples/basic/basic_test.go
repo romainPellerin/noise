@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/perlin-network/noise"
-	"github.com/perlin-network/noise/examples/basic/messages"
-	"github.com/perlin-network/noise/utils"
+	"github.com/romainPellerin/noise"
+	"github.com/romainPellerin/noise/examples/basic/messages"
+	"github.com/romainPellerin/noise/utils"
 
 	"github.com/gogo/protobuf/proto"
 	"github.com/pkg/errors"
