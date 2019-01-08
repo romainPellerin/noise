@@ -2,6 +2,7 @@ package discovery
 
 import (
 	"context"
+	"encoding/hex"
 	"time"
 
 	"github.com/romainPellerin/noise/log"
@@ -164,6 +165,8 @@ func (s *Service) PeerDisconnect(target []byte) {
 }
 
 func (s *Service) EvictLastSeenPeer(id []byte) (bool, error) {
+
+
 	// bucket is full, ping the least-seen node
 	bucketID := s.Routes.GetBucketID(id)
 	bucket := s.Routes.Bucket(bucketID)
@@ -177,6 +180,10 @@ func (s *Service) EvictLastSeenPeer(id []byte) (bool, error) {
 	defer cancel()
 	reply, err := s.sendAdapter.Request(ctx, lastSeen.PublicKey, body)
 	if err != nil || reply == nil {
+
+		log.Debug().
+			Str("id", hex.EncodeToString(id)).Msg("Peer has been evicted.")
+
 		bucket.Remove(element)
 		return true, nil
 	}
