@@ -53,7 +53,7 @@ func TestSKademliaEviction(t *testing.T) {
 	for i := 2; i < len(services); i++ {
 		skademliaID = peer.CreateID("", ids[i].MyIdentity())
 		bucketID := rt.GetBucketID(skademliaID.Id)
-		assert.Equalf(t, expectedBucketID, bucketID, "expected bucket ID to be %d, got %d", expectedBucketID, bucketID)
+		assert.Equal(t, expectedBucketID, bucketID, "expected bucket ID to be %d, got %d", expectedBucketID, bucketID)
 	}
 
 	// assert broadcasts goes to everyone
@@ -71,20 +71,20 @@ func TestSKademliaEviction(t *testing.T) {
 			}
 			select {
 			case received := <-services[j].Mailbox:
-				assert.Equalf(t, expected, received, "Expected message '%s' to be received by node %d but got '%v'", expected, j, received)
+				assert.Equal(t, expected, received, "Expected message '%s' to be received by node %d but got '%v'", expected, j, received)
 			case <-time.After(100 * time.Millisecond):
 				if i == 0 && j == 5 {
 					// this case should fail because node 5 is not in node 0's routing table
 					continue
 				}
-				assert.Failf(t, "Timed out attempting to receive message", "from Node %d for Node %d", i, j)
+				assert.Fail(t, "Timed out attempting to receive message", "from Node %d for Node %d", i, j)
 			}
 		}
 	}
 
 	expectedLen := 4
 	bucket := rt.Bucket(expectedBucketID)
-	assert.Equalf(t, expectedLen, bucket.Len(), "expected bucket size to be %d, got %d", expectedLen, bucket.Len())
+	assert.Equal(t, expectedLen, bucket.Len(), "expected bucket size to be %d, got %d", expectedLen, bucket.Len())
 
 	// stop node 1, bootstrap node 5 and broadcast again
 	services[1].Shutdown()
@@ -107,20 +107,20 @@ func TestSKademliaEviction(t *testing.T) {
 			}
 			select {
 			case received := <-services[j].Mailbox:
-				assert.Equalf(t, expected, received, "Expected message '%s' to be received by node %d but got '%v'", expected, j, received)
+				assert.Equal(t, expected, received, "Expected message '%s' to be received by node %d but got '%v'", expected, j, received)
 			case <-time.After(100 * time.Millisecond):
 				if i == 1 || j == 1 {
 					// node 1 is disconnected, should not send or receive any messages
 					continue
 				}
-				assert.Failf(t, "Timed out attempting to receive message", "from Node %d for Node %d", i, j)
+				assert.Fail(t, "Timed out attempting to receive message", "from Node %d for Node %d", i, j)
 			}
 		}
 	}
 
 	// nodes[1] is no longer in node[0]'s routing table, but node[5] is now in it so size is the same
 	expectedLen = 4
-	assert.Equalf(t, expectedLen, bucket.Len(), "expected bucket size to be %d, got %d", expectedLen, bucket.Len())
+	assert.Equal(t, expectedLen, bucket.Len(), "expected bucket size to be %d, got %d", expectedLen, bucket.Len())
 }
 
 func generateBucketIDs(id *skademlia.IdentityAdapter, n int) []*skademlia.IdentityAdapter {

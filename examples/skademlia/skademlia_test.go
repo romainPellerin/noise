@@ -3,6 +3,7 @@ package skademlia_test
 import (
 	"context"
 	"fmt"
+	"strconv"
 	"testing"
 	"time"
 
@@ -45,13 +46,61 @@ func TestSKademliaBootstrap(t *testing.T) {
 			}
 			select {
 			case received := <-nodes[j].Mailbox:
-				assert.Equalf(t, expected, received, "Expected message '%s' to be received by node %d but got '%v'", expected, j, received)
+				assert.Equal(t, expected, received, "Expected message '%s' to be received by node %d but got '%v'", expected, j, received)
 			case <-time.After(2 * time.Second):
-				assert.Failf(t, "Timed out attempting to receive message", "from Node %d for Node %d", i, j)
+				assert.Fail(t, "Timed out attempting to receive message", "from Node %d for Node %d", i, j)
 			}
 		}
 	}
 }
+
+
+func TestSKademliaBootstrapAsync(t *testing.T) {
+	numNodes := 3
+	nodes := makeNodes(numNodes)
+
+	// Connect other nodes to node 0
+	assert.Nil(t, nodes[1].Bootstrap(nodes[0].Self()))
+
+	// make sure nodes are connected
+	time.Sleep(time.Duration(len(nodes)) * time.Second)
+
+	// assert broadcasts goes to everyone
+	for i := 0; i < len(nodes)-1; i++ {
+		expected := fmt.Sprintf("This is a broadcasted message from Node %d.", i)
+		assert.Nil(t, nodes[i].Broadcast(context.Background(), &noise.MessageBody{
+			Service: bootstrapOpcode,
+			Payload: ([]byte)(expected),
+		}))
+	}
+
+	assert.Nil(t, nodes[2].Bootstrap(nodes[0].Self()))
+
+	// make sure nodes are connected
+	time.Sleep(time.Duration(len(nodes)) * time.Second)
+
+	expected := fmt.Sprintf("This is a broadcasted message from Node %d.", 2)
+	assert.Nil(t, nodes[2].Broadcast(context.Background(), &noise.MessageBody{
+		Service: bootstrapOpcode,
+		Payload: ([]byte)(expected),
+	}))
+
+	for i := 0; i < len(nodes); i++ {
+		// Check if message was received by other nodes.
+		for j := 0; j < len(nodes); j++ {
+			if i == j {
+				continue
+			}
+			select {
+			case received := <-nodes[j].Mailbox:
+				fmt.Println("message received by node "+strconv.Itoa(j)+":", string(received))
+			case <-time.After(2 * time.Second):
+				//assert.Fail(t, "Timed out attempting to receive message", "from Node %d for Node %d", i, j)
+			}
+		}
+	}
+}
+
 
 type MsgService struct {
 	*noise.Noise
