@@ -71,6 +71,8 @@ func (a *ConnectionAdapter) Dial(c *protocol.Controller, local []byte, remote []
 		return nil, errors.New("Skip connecting to self address")
 	}
 
+	log.Info().Msg("dial peer "+ remotePeer.Address)
+
 	conn, err := a.dialer(remotePeer.Address)
 	if err != nil {
 		return nil, err

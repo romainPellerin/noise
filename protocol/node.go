@@ -126,8 +126,10 @@ func (n *Node) getPeer(remote []byte) (*EstablishedPeer, error) {
 		} else {
 			msgAdapter, err := n.connAdapter.Dial(n.controller, n.idAdapter.MyIdentity(), remote)
 			if err != nil {
+
 				log.Error().
 					Err(err).
+					Str("peerID",string(remote)).
 					Msgf("unable to establish connection actively")
 				msgAdapter = nil
 			}
@@ -298,6 +300,8 @@ func (n *Node) Send(ctx context.Context, recipient []byte, body *MessageBody) er
 	if bytes.Equal(recipient, n.idAdapter.MyIdentity()) {
 		return errors.New("sending to itself")
 	}
+
+	log.Info().Msgf("Send message to recipient to %v", hex.EncodeToString(recipient))
 
 	message := &Message{
 		Sender:    n.idAdapter.MyIdentity(),
