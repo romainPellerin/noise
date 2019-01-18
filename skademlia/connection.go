@@ -67,8 +67,8 @@ func (a *ConnectionAdapter) Dial(c *protocol.Controller, local []byte, remote []
 		return nil, errors.Errorf("skademlia: remote ID %s not found in routing table", hexID)
 	}
 
-	if localPeer.Address == remotePeer.Address {
-		return nil, errors.New("Skip connecting to self address")
+	if hex.EncodeToString(localPeer.PublicKey) == hex.EncodeToString(remotePeer.PublicKey) {
+		return nil, errors.New("Skip connecting to self (same public key)")
 	}
 
 	log.Info().Msg("dial peer "+ remotePeer.Address)
